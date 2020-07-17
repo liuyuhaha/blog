@@ -1,0 +1,37 @@
+<!-- footer模块 -->
+<div class="footer">
+    <div class="w1100">
+        <div class="copyright">
+            <img src="/home/img/logo.png" alt="">
+            <p>box模块里的内容是动态的所以没有给高度 子盒子又都浮动了<br />所以box盒子的实际为零 要先清浮动</p>
+            <a href="#">下载APP</a>
+        </div>
+        <div class="links">
+            <dl>
+                <dt>关于学成网</dt>
+                <dd><a href="">关于</a></dd>
+                <dd><a href="">管理团队</a></dd>
+                <dd><a href="">工作机会</a></dd>
+                <dd><a href="">客户服务</a></dd>
+                <dd><a href="">帮助</a></dd>
+            </dl>
+            <dl>
+                <dt>关于学成网</dt>
+                <dd><a href="">关于</a></dd>
+                <dd><a href="">管理团队</a></dd>
+                <dd><a href="">工作机会</a></dd>
+                <dd><a href="">客户服务</a></dd>
+                <dd><a href="">帮助</a></dd>
+            </dl>
+            <dl>
+                <dt>关于学成网</dt>
+                <dd><a href="">关于</a></dd>
+                <dd><a href="">管理团队</a></dd>
+                <dd><a href="">工作机会</a></dd>
+                <dd><a href="">客户服务</a></dd>
+                <dd><a href="">帮助</a></dd>
+            </dl>
+        </div>
+    </div>
+</div>
+<!-- footer模块结束 -->

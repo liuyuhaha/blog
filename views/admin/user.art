@@ -1,0 +1,103 @@
+{{extend './common/layout.art'}}
+{{block 'main'}}
+<!-- 头部区域开始 -->
+{{include './common/header.art'}}
+<!-- 头部区域结束 -->
+<!-- 主体区域开始 -->
+<div class="content">
+    <!-- aside区域开始 -->
+    {{include './common/aside.art'}}
+    <!-- aside区域结束 -->
+    <!-- main区域开始 -->
+    <div class="main">
+        <!-- 表格标题区域 -->
+        <div class="title">
+            <h4>用户</h4>
+            <span>找到{{count}}个用户</span>
+            <a href="/admin/user-edit" class="btn btn-primary new">新增用户</a>
+        </div>
+        <!-- table表格区域 -->
+        <table class="table table-dark">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">用户名</th>
+                    <th scope="col">邮箱</th>
+                    <th scope="col">角色</th>
+                    <th scope="col">状态</th>
+                    <th scope="col">操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{each users}}
+                <tr>
+                    <!-- id数据原文输出 -->
+                    <th scope="row">{{@$value._id}}</th>
+                    <td>{{$value.username}}</td>
+                    <td>{{$value.email}}</td>
+                    <td>{{$value.role=='admin' ? '超级管理员' : '普通用户'}}</td>
+                    <td>{{$value.state==0 ?"启用":"禁用"}}</td>
+                    <td>
+                        <a href="/admin/user-edit?id={{@$value._id}}" class="glyphicon glyphicon-edit"></a>
+                        <i class="glyphicon glyphicon-remove delete" data-toggle="modal" data-target="#ModalCenter"
+                            data-id="{{@$value._id}}">
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        <!-- 分页 -->
+        <ul class="pagination">
+            <li style="display:<%= page-1 < 1 ? 'none':'inline'%>">
+                <a href="/admin/user?page=<%=page-1 %>">
+                    <span>&laquo;</span>
+                </a>
+            </li>
+            <% for(var i=1;i<=total;i++) { %>
+            <li><a href="/admin/user?page=<%=i %>">{{i}}</a></li>
+            <% } %>
+            <li style="display:<%= page-0+1 > total ? 'none':'inline'%>">
+                <!-- 隐式转换加法规则之一：只要加号两边一边有字符串就会进行字符串拼接 -->
+                <!-- 隐式转换中减法的特殊规则之一：其中一个操作数不是number，则会在后台调用number() -->
+                <a href="/admin/user?page=<%=page-0+1 %>">
+                    <span>&raquo;</span>
+                </a>
+            </li>
+        </ul>
+        <!-- /分页 -->
+    </div>
+</div>
+<!-- 删除确认弹出框 另一种表单-->
+<div class="modal fade" id="ModalCenter" tabindex="-1" role="dialog" aria-labelledby="ModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <form class="modal-content" method="GET" action="/admin/user-delete">
+            <div class="modal-header">
+                <h5 class="modal-title" id="ModalCenterTitle">请确认</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>确认删除此用户吗</p>
+                <input type="hidden" name="id" id="deleteUserId">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                <button type="submit" class="btn btn-primary">确认</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+{{/block}}
+{{block 'script'}}
+<script type="text/javascript">
+    $('.delete').on('click', function () {
+        // 获取自定义属性data-*的值 jQuery.attr 方法存取 dataset
+        const id = $(this).attr('data-id')
+        //   给input设置值用val("")传参 将要删除的用户id存储在隐藏域中
+        $('#deleteUserId').val(id)
+    })
+</script>
+{{/block}}

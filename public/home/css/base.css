@@ -1,0 +1,80 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "Microsoft YaHei", "Arial";
+  background: #f5f5f5;
+  min-width: 1100px;
+}
+
+.header {
+  width: 100%;
+  height: 60px;
+  background: #3f434c;
+}
+/* 字体颜色 */
+.c {
+  color: #304cde;
+}
+/* 背景颜色 */
+.bc {
+  background-color: #304cde;
+}
+/* 普通字体颜色 */
+.nc {
+  color: #555;
+}
+/* 清除浮动 */
+.claerfix::before,
+.claerfix::after {
+  content: "";
+  display: table;
+}
+.claerfix::after {
+  clear: both;
+}
+.claerfix {
+  *zoom: 1;
+}
+
+/* 版心公共类 */
+.w1100 {
+  width: 1100px;
+  margin: 0 auto;
+}
+
+.logo {
+  width: 175px;
+  height: 60px;
+  float: left;
+}
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+
+.nav {
+  float: right;
+  height: 60px;
+}
+.nav ul li {
+  float: left;
+  /* 中间的距离给li添加合适 */
+  margin-left: 14px;
+}
+.nav ul li a {
+  display: block;
+  height: 60px;
+  padding: 0 26px;
+  font-size: 14px;
+  line-height: 60px;
+  color: #f5f5f5;
+  transition: all 0.3s;
+}
+.nav ul li a:hover,
+.nav ul li .active {
+  background-color: #304cde;
+}

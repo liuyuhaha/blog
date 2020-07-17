@@ -1,0 +1,124 @@
+{{extend './common/layout.art'}}
+
+{{block "link"}}
+<link rel="stylesheet" href="/home/css/default.css">
+{{/block}}
+
+{{block 'main'}}
+<!-- 子模板的相对路径相对的就是当前文件，因为它是由模版引擎解析的 -->
+{{include './common/header.art'}}
+<!-- 版心内容区域开始 -->
+<div class="banner">
+    <!-- 版心 -->
+    <div class="w1100">
+        <div class="subnav">
+            <ul>
+                <li><a href="">前端开发<span>&gt;</span></a></li>
+                <li><a href="">创意设计<span>&gt;</span></a></li>
+                <li><a href="">创意设计<span>&gt;</span></a></li>
+                <li><a href="">批发新体验<span>&gt;</span></a></li>
+                <li><a href="">品牌梳理<span>&gt;</span></a></li>
+                <li><a href="">图像时代<span>&gt;</span></a></li>
+                <li><a href="">思考心得<span>&gt;</span></a></li>
+                <li><a href="">电商平台立体化<span>&gt;</span></a></li>
+                <li><a href="">网站建设<span>&gt;</span></a></li>
+            </ul>
+        </div>
+        <!-- course课程表模块 -->
+        <div class="course">
+            <h2>我的课程表</h2>
+            <div class="bd">
+                <ul>
+                    <li>
+                        <h4>继续学习 吃宵夜有时间</h4>
+                        <p>使用对象</p>
+                    </li>
+                    <li>
+                        <h4>继续学习 程序语言设计</h4>
+                        <p>使用对象</p>
+                    </li>
+                    <li>
+                        <h4>继续学习 程序语言设计</h4>
+                        <p>使用对象</p>
+                    </li>
+                </ul>
+                <a href="" class="more">全部课程</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 精品推荐模块 -->
+<div class="goods w1100">
+    <!-- h3标题盒子 -->
+    <h3>精品推荐</h3>
+    <!-- 链接盒子 -->
+    <ul>
+        <li><a href="">jquery</a></li>
+        <li><a href="">html</a></li>
+        <li><a href="">css</a></li>
+        <li><a href="">nodejs</a></li>
+        <li><a href="">vuejs</a></li>
+        <li><a href="">vuecli</a></li>
+    </ul>
+    <!-- 右浮动链接 -->
+    <a href="" class="mod">修改兴趣</a>
+</div>
+<!-- box-大模块 -->
+<div class="box w1100">
+    <div class="boxhd">
+        <h3>精品推荐</h3>
+        <a href="">查看全部</a>
+    </div>
+    <div class="boxbd">
+        <ul class="claerfix">
+            {{each data}}
+            <li>
+                <a href="/home/article?id={{@$value._id}}">
+                    <img src="{{$value.cover}}" alt="">
+                </a>
+                <div class="title">
+                    <a href="/home/article?id={{@$value._id}}">{{$value.title}}</a>
+                    <div class="info">
+                        <span class="author">{{$value.author.username}}</span>
+                        <span>{{dateFormat($value.publishDate,'yyyy-mm-dd')}}</span>
+                    </div>
+                    <div class="brief nc">
+                        {{$value.content}}
+                    </div>
+                </div>
+            </li>
+            {{/each}}
+            <!-- <li>
+                <img src="/home/img/2.png" alt="">
+                <div class="title">
+                    <a href="">天猫精灵超级发布会创意设计 打造批发新体验</a>
+                    <div class="info">
+                        <span class="author">he chunli</span>
+                        <span>2020-09-10</span>
+                    </div>
+                    <div class="brief nc">
+                        天猫精灵品牌经历了一年的成长，在2018年中营销活动中，以527超级发布会作为品牌宣传的主战场，以618年中大促作为品牌销售的承接，UED团队从品牌价值诉求出发，完成品牌精神、情感、表...
+                    </div>
+                </div>
+            </li>-->
+        </ul>
+    </div>
+</div>
+<!-- box-大模块结束 -->
+<!-- 分页区域开始 -->
+<div class="w1100 page">
+    {{if page>1}}
+    <a href="/home/?page=<%= page-1 %>">上一页</a>
+    {{/if}}
+    <% for( var i=1;i<=total;i++){ %>
+    <a href="/home/?page=<%= i %>" class="{{i==page?'active':''}}">{{i}}</a>
+    <% } %>
+    {{if page<total}}
+    <a href="/home/?page=<%= page-0+1 %>">下一页</a>
+    {{/if}}
+</div>
+<!-- 分页区域结束 -->
+<!-- footer模块 -->
+{{include './common/footer.art'}}
+<!-- footer模块结束 -->
+{{/block}}

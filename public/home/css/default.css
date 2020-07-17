@@ -1,0 +1,264 @@
+.banner {
+  height: 421px;
+  background-color: #304cde;
+  min-width: 1100px;
+}
+.banner .w1100 {
+  height: 421px;
+  background: url(../img/topcenter.jpg) no-repeat top center;
+  background-size: 1720px 421px;
+}
+.subnav {
+  float: left;
+  width: 190px;
+  height: 421px;
+  background: rgba(0, 0, 0, 0.3);
+}
+.subnav ul li {
+  height: 45px;
+  line-height: 45px;
+  padding: 0 20px;
+}
+/* .subnav ul li a::after {
+  content: ">";
+  float: right;
+  color: white; 
+} */
+
+.subnav ul li a {
+  font-size: 14px;
+  color: white;
+  transition: all 0.3s;
+}
+.subnav ul li:hover a {
+  color: #00a4ff;
+}
+.subnav ul li a span {
+  float: right;
+}
+.course {
+  float: right;
+  height: 300px;
+  width: 230px;
+  background: rgba(0, 0, 0, 0.6);
+  margin-top: 50px;
+}
+h2 {
+  height: 48px;
+  color: #fff;
+  line-height: 48px;
+  text-align: center;
+  font-size: 18px;
+}
+.bd {
+  padding: 0 20px;
+}
+.bd ul li {
+  padding: 14px 0;
+  border-bottom: 1px solid #00a4ff;
+}
+.bd ul li h4 {
+  color: #fff;
+  font-size: 14px;
+}
+.bd ul li p {
+  font-size: 12px;
+  color: azure;
+}
+.bd .more {
+  display: block;
+  color: #00a4ff;
+  height: 38px;
+  border: 1px solid #00a4ff;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 38px;
+  text-align: center;
+  margin-top: 5px;
+}
+
+/* 精品推荐模块 */
+.goods {
+  /* 大盒子 */
+  height: 60px;
+  background: #fff;
+  box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.1);
+  margin-top: 10px;
+  /* 行高可以继承 */
+  line-height: 60px;
+}
+.goods ul {
+  margin-left: 100px;
+  float: left;
+}
+.goods h3,
+.goods ul li {
+  float: left;
+}
+
+.goods h3 {
+  color: #46a5e2;
+  margin-left: 25px;
+  font-size: 16px;
+}
+.mod {
+  float: right;
+  color: #46a5e2;
+  font-size: 14px;
+  font-weight: 700;
+  margin-right: 25px;
+}
+.goods ul li a {
+  color: black;
+  padding: 0 25px;
+  font-size: 16px;
+  border-left: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+/* box核心模块 */
+.box {
+  margin-top: 30px;
+}
+.boxhd {
+  display: flex;
+  justify-content: space-between;
+  height: 45px;
+}
+.boxhd h3 {
+  font-size: 20px;
+  color: #494949;
+}
+.boxhd a {
+  margin-right: 25px;
+  margin-top: 10px;
+  font-size: 12px;
+  color: #a5a5a5;
+}
+
+.boxbd ul {
+  /* ul设计的足够大就可以忽略最后一个盒子的外边距 */
+  width: 1100px;
+}
+.boxbd ul li:nth-child(2n-1) {
+  margin-right: 40px;
+}
+.boxbd ul li {
+  float: left;
+  width: 530px;
+  height: 430px;
+  background-color: white;
+  margin-bottom: 25px;
+  box-shadow: 1px 0 3px 1px rgba(0, 0, 0, 0.1);
+}
+.title {
+  margin: 10px 20px 20px 20px;
+}
+.boxbd ul li a {
+  display: block;
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+  transition: all 0.3s;
+}
+.boxbd ul li a:hover {
+  color: #304cde;
+}
+.info {
+  font-size: 12px;
+  color: #a5a5a5;
+  margin-top: 10px;
+}
+.author {
+  color: #46a5e2;
+  padding-right: 15px;
+  position: relative;
+}
+.author::after {
+  content: "";
+  width: 2px;
+  height: 10px;
+  position: absolute;
+  top: 3px;
+  right: 1px;
+  background: #3f434c;
+}
+.brief {
+  font-size: 14px;
+  display: block;
+  margin-top: 20px;
+  overflow: hidden;
+}
+
+/* footer模块 */
+.footer {
+  min-width: 1100px;
+  height: 415px;
+  background: #3f434c;
+  /* box模块里的内容是动态的所以没有给高度，
+  子盒子又都浮动了所以box盒子的实际为零 要先清浮动*/
+}
+.footer .w1100 {
+  /* 外边距有合并的风险，但是padding没有 */
+  padding-top: 35px;
+}
+.copyright {
+  float: left;
+  line-height: 30px;
+}
+.links {
+  float: right;
+  margin-left: 20px;
+}
+.copyright p {
+  color: #fff;
+  font-size: 12px;
+  margin: 20px 0 15px 0;
+}
+.copyright a {
+  display: block;
+  width: 118px;
+  height: 30px;
+  font-size: 16px;
+  color: #00a4ff;
+  border: 1px solid #00a4ff;
+  padding: 6px 10px;
+  text-align: center;
+}
+.links dl {
+  float: left;
+  margin-left: 100px;
+}
+.links dl dt {
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 5px;
+}
+.links dl dd a {
+  color: #fff;
+  font-size: 12px;
+}
+
+/* 分页区域 */
+.page {
+  text-align: center;
+  padding: 30px 0;
+}
+.page a {
+  text-decoration: none;
+  font-size: 14px;
+  display: inline-block;
+  transition: all 0.2s;
+  color: black;
+  margin: 0 8px;
+}
+.page a:hover {
+  color: #00a4ff;
+}
+.page .active{
+  color: #00a4ff;
+}
+
+.claerfix li img{
+  width: 530px;
+  height: 240px;
+}

@@ -1,0 +1,97 @@
+{{extend './common/layout.art'}}
+{{block 'main'}}
+<!-- 头部区域开始 -->
+{{include './common/header.art'}}
+<!-- 头部区域结束 -->
+<!-- 主体区域开始 -->
+<div class="content">
+    <!-- aside区域开始 -->
+    {{include './common/aside.art'}}
+    <!-- aside区域结束 -->
+    <!-- main区域开始 -->
+    <div class="content">
+        <!-- aside区域开始 -->
+        {{include './common/aside.art'}}
+        <!-- aside区域结束 -->
+        <!-- main区域 -->
+        <div class="main">
+            <!-- title -->
+            <div class="title">
+                <h2>文章编辑表单</h2>
+                <p <% if(msg){ %>style="background-color: red;color: white;" <% } %>>{{msg?msg:'错误信息提示区'}}</p>
+            </div>
+            <!-- form -->
+            <form class="form-container" method="post" action="{{link}}" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label>标题</label>
+                    <input type="text" name="title" class="form-control" placeholder="请输入文章标题"
+                        value="{{articles&&articles.title}}">
+                </div>
+                <div class="form-group">
+                    <label>作者</label>
+                    <input readonly class="form-control" name="author" value="{{@userInfo._id}}">
+                </div>
+                <div class="form-group">
+                    <label>发布时间</label>
+                    <input type="date" name="publishDate" class="form-control">
+                </div>
+                <!-- 文章封面一次选择一张图片就好 
+                    multiple允许用户一次性上传多张图片 -->
+                <div class="form-group">
+                    <label for="exampleFormControlFile1">文章封面</label>
+                    <input type="file" name="cover" class="form-control-file">
+                    <!-- 缩略图 -->
+                    <div class="thumbnail-waper">
+                        <img src="" alt="" class="img-thumbnail">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>内容</label>
+                    <textarea class="form-control" name="content" id="editor" rows="3"></textarea>
+                </div>
+                <div class="buttons">
+                    <input type="submit" class="btn btn-primary" value="{{button}}">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    {{/block}}
+
+    {{block 'script'}}
+    <script src="lib/ckeditor5/ckeditor.js"></script>
+    <script type="text/javascript">
+        let editor;
+
+        ClassicEditor
+            .create(document.querySelector('#editor'))
+            .then(newEditor => {
+                editor = newEditor;
+            })
+            .catch(error => {
+                console.error(error);
+            });
+
+        // 获取数据
+        // const editorData = editor.getData();
+
+        // 客户端在本地选取文件所以要用js代码读取文件
+        var file = document.querySelector('.form-control-file');
+        var preview = document.querySelector('.img-thumbnail')
+        //当用户选择完文件之后
+        file.onchange = function () {
+            //1.创建文件读取对象
+            var reader = new FileReader()
+            //this代表file本身 files是file属性代表用户选择的文件列表
+            //2.读取文件 内参数就是要读取的文件 此方法是异步函数
+            reader.readAsDataURL(this.files[0])
+            //3.监听onload事件
+            reader.onload = function () {
+                console.log(reader.result);
+                // 获取到的文件代码显示到页面当中
+                preview.src = reader.result
+            }
+        }
+
+    </script>
+    {{/block}}

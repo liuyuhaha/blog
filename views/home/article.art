@@ -1,0 +1,67 @@
+{{extend './common/layout.art'}}
+
+{{block 'link'}}
+<link rel="stylesheet" href="/home/css/article.css">
+{{/block}}
+
+{{block 'main'}}
+{{include './common/header.art'}}
+<!-- 版心内容区域 -->
+<div class="banner">
+    <div class="w1100">
+        <div class="container">
+            <!-- 文章头部 标题区域-->
+            <div class="article-header">
+                <h3 class="title">{{artOne.title}}</h3>
+                <div class="article-info">
+                    <span class="author">{{artOne.author.username}}</span>
+                    <span>{{dateFormat(artOne.publishDate,'yyyy-mm-dd')}}</span>
+                </div>
+            </div>
+            <!-- 文章主题 内容区域 -->
+            <div class="article-content">
+                {{@artOne.content}}
+            </div>
+            <!-- 文章底部 评论区域 -->
+            <div class="article-footer">
+                <h4>评论</h4>
+                <!-- 评论表单区域 -->
+                {{if userInfo}}
+                <form action="/home/comment" method="post" class="comment-form">
+                    <textarea name="content" id="comment" cols="30" rows="10"></textarea>
+                    <!-- 添加隐藏域 -->
+                    <!-- 用户id 公共信息-->
+                    <input type="hidden" name="uid" value="{{@userInfo._id}}">
+                    <!-- 文章id article.js路由已经将信息查询并传递过来-->
+                    <input type="hidden" name="aid" value="{{@artOne._id}}">
+                    <div class="items">
+                        <input type="submit" value='提交'>
+                    </div>
+                </form>
+                {{else}}
+                <div>
+                    <h1>评论需要登录 请先登录</h1>
+                </div>
+                {{/if}}
+                <!-- 评论表单区域结束 -->
+                <!-- 评论列表区域 -->
+                <div class="comment-list">
+                    {{each comments}}
+                    <div class="mb10">
+                        <div class="article-info">
+                            <span class="author">{{$value.uid.username}}</span>
+                            <span class="date">{{dateFormat($value.time,"yyyy-mm-dd")}}</span>
+                            <span>{{$value.uid.email}}</span>
+                        </div>
+                        <div class="comment-content">
+                            {{$value.content}}
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+                <!-- 评论列表区域结束 -->
+            </div>
+        </div>
+    </div>
+</div>
+{{/block}}

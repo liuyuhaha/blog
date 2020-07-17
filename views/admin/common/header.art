@@ -1,0 +1,20 @@
+<div class="header">
+    <!-- logo区域 -->
+    <div class="logo fl">
+        <h4>黑马程序员</h4>
+    </div>
+    <!-- 导航栏区域 -->
+    <div class="info fr">
+        <!-- Example single danger button -->
+        <div class="profile dropdown ">
+            <span class="btn  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{userInfo && userInfo.username}}
+                <span class="caret"></span>
+            </span>
+            <ul class="dropdown-menu">
+                <li><a href="user-editl">个人资料</a></li>
+                <li><a href="/admin/logout">退出登录</a></li>
+            </ul>
+        </div>
+    </div>
+</div>

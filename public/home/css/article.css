@@ -1,0 +1,100 @@
+.banner {
+  color: #555555;
+  margin-top: 15px;
+}
+.banner .w1100 {
+  overflow: hidden;
+}
+.banner .container {
+  background-color: #fff;
+  padding: 30px 40px;
+}
+.article-header {
+  margin-bottom: 20px;
+}
+.article-header .title {
+  font-size: 20px;
+  transition: all 0.2s;
+}
+.article-header .title:hover {
+  color: #46a5e2;
+}
+.article-info {
+  margin-top: 10px;
+  overflow: hidden;
+}
+.article-info span {
+  font-size: 12px;
+  float: left;
+}
+.article-info .author {
+  position: relative;
+  color: #46a5e2;
+  padding-right: 6px;
+  margin-right: 6px;
+}
+.article-info .date {
+  position: relative;
+  color: #555555;
+  padding-right: 6px;
+  margin-right: 6px;
+}
+.author::after {
+  content: "";
+  width: 1px;
+  height: 10px;
+  background: #3f434c;
+  position: absolute;
+  top: 3px;
+  right: 0;
+}
+.date::after {
+  content: "";
+  width: 1px;
+  height: 10px;
+  background: #3f434c;
+  position: absolute;
+  top: 3px;
+  right: 0;
+}
+.article-content p {
+  font-size: 14px;
+  line-height: 26px;
+  padding: 8px 0;
+}
+.article-footer h4 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+.article-footer .comment-form {
+  margin-top: 15px;
+}
+.article-footer .comment-form .items {
+  overflow: hidden;
+  margin: 10px 0;
+}
+.article-footer .comment-form .items input {
+  width: 100px;
+  cursor: pointer;
+  height: 26px;
+}
+.article-footer textarea {
+  width: 100%;
+  height: 60px;
+  padding: 10px;
+  display: block;
+}
+.comment-list {
+  margin-top: 30px;
+}
+.comment-content {
+  font-size: 12px;
+  margin-top: 5px;
+}
+input,
+textarea {
+  border: 1px solid #ccc;
+  outline: none;
+  color: #555;
+  font-family: inherit;
+}

@@ -1,0 +1,231 @@
+body,
+h4,
+ul {
+  margin: 0;
+  padding: 0;
+}
+// 定义button颜色
+@buColor: #337ab7;
+// 定义背景颜色与字体颜色函数
+.setColor(@bg,@c) {
+  background-color: @bg;
+  color: @c;
+}
+body {
+  background: #f5f5f5;
+  font-family: "Microsoft YaHei", "Arial";
+}
+li {
+  list-style: none;
+}
+.blog_login {
+  background: #fafafb;
+  position: absolute;
+  // 元素会铺满参照对象
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+}
+.login_container {
+  position: absolute;
+  width: 500px;
+  height: 264px;
+  // 元素会四周居中
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  .title {
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .login {
+    background-color: #fff;
+    border-top: 2px solid #1c5de7;
+    width: 500px;
+    height: 220px;
+    box-shadow: 0 0 3px 1px #e1e1e1;
+    padding: 20px;
+  }
+}
+// login页面结束
+// 用户编辑页面开始
+.fl {
+  float: left;
+}
+
+.header {
+  width: 100%;
+  height: 72px;
+  display: fixed;
+  left: 0;
+  top: 0;
+  background-color: white;
+  box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  .logo {
+    width: 288px;
+    height: 72px;
+    h4 {
+      line-height: 72px;
+      text-align: center;
+      font-weight: 700;
+    }
+    background-image: linear-gradient(90deg, #1c5de7, #1c91e7);
+    color: #ffffff;
+    h4::after {
+      content: "ITHEIMA";
+      font-size: 14px;
+      padding-left: 5px;
+      font-weight: normal;
+    }
+  }
+}
+.fr {
+  float: right;
+}
+.info {
+  width: 160px;
+  height: 72px;
+  margin-right: 40px;
+  .profile {
+    width: 160px;
+    height: 72px;
+    .btn {
+      width: 100%;
+      height: 72px;
+      line-height: 72px;
+      text-align: right;
+      padding-right: 26px;
+    }
+  }
+  .profile:hover {
+    background-color: rgb(223, 234, 236);
+  }
+}
+
+.content {
+  position: fixed;
+  top: 72px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.aside {
+  position: relative;
+  width: 288px;
+  height: 100%;
+  .setColor(#18202e,#FFFFFF);
+  ul {
+    margin-top: 50px;
+    li {
+      .item {
+        position: relative;
+        display: block;
+        text-decoration: none;
+        color: #ffffff;
+        padding: 15px 20px 15px 30px;
+        font-size: 12px;
+        span {
+          margin-right: 10px;
+        }
+      }
+      .item:hover {
+        background-color: rgba(80, 80, 80, 0.1);
+      }
+      .item:hover::before,
+      .active::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 0;
+        height: 100%;
+        border-left: 4px solid #0097f7;
+      }
+    }
+  }
+  .bm-logo {
+    position: absolute;
+    height: 36px;
+    background-color: rgba(80, 80, 80, 0.1);
+    text-align: center;
+    line-height: 36px;
+    font-size: 12px;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    a {
+      text-decoration: none;
+    }
+  }
+}
+
+.main {
+  margin-left: 288px;
+  margin-top: 1px;
+  height: 100%;
+  background: #fafafb;
+  overflow-y: auto;
+  box-sizing: border-box;
+  padding: 25px;
+  .title h2 {
+    font-weight: 700;
+  }
+  .title p {
+    background-color: yellowgreen;
+    padding: 8px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+  }
+  form {
+    padding: 15px;
+    font-size: 12px;
+    background-color: #fff;
+    box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.1);
+  }
+}
+.error {
+  .setColor(red,white);
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  line-height: 500px;
+  font-weight: 700;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-align: center;
+}
+
+// 用户页面
+.main .title {
+  margin-bottom: 25px;
+  position: relative;
+  h4 {
+    font-weight: 700;
+    font-size: 22px;
+  }
+  .new {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}
+.table-dark {
+  .setColor(#18202e, white);
+  min-width: 500px;
+  .glyphicon {
+    margin-right: 4px;
+    cursor: pointer;
+  }
+}
+.main .pagination {
+  margin: 0;
+}

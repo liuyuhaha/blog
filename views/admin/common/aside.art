@@ -1,0 +1,21 @@
+<div class="aside fl">
+    <ul class="menu">
+        <li>
+            <a href="/admin/user" class="item {{currentLink == 'user'?'active':''}}"><span
+                    class="glyphicon glyphicon-user"></span>
+                用户管理
+            </a>
+        </li>
+        <li>
+
+            <a href="/admin/article" class="item {{currentLink == 'article'?'active':''}}">
+                <span class="glyphicon glyphicon-th-list"></span>
+                文章管理
+            </a>
+        </li>
+    </ul>
+    <!-- bottom logo -->
+    <div class="bm-logo">
+        Powered by <a href=""> 黑马程序员</a>
+    </div>
+</div>
